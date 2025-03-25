@@ -19,7 +19,7 @@ import java.util.*;
 public class CorePlayer extends Player
 {
     private byte[] permissions;
-    private int stackDepth = 0;
+    private int stackDepth = 0; // todo remove this debug stuff
     private final SortedSet<Rank> ranks = new TreeSet<>();
     /**
      * The last inventories that the player had open (used for backing up in menus)
