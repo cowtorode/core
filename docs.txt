@@ -1,0 +1,57 @@
+Programs:
+- ProxyCore (runs on the proxy, manages interactions between each server's backend core)
+- BackendCore (runs on each backend server, interacts with the proxy)
+- MinestomCore (injects into any Minestom servers. Functions the same as the BackendCore)
+
+Commands
+- /grant
+- /grants
+- /rankcache
+
+- /check
+- /alts
+- /staffhistory
+
+- /blacklist
+- /ban
+- /kick
+- /mute
+- /warn
+
+- /gm
+- /vanish
+- /modmode
+
+- /invsee
+- /reports
+- /onlinestaff
+- /freeze
+
+- /clearchat
+- /mutechat
+- /slowchat
+
+- /staffchat
+
+- /report
+- /helpop
+
+- /socialspy
+- /message
+- /reply
+
+- /tpoffline
+- /tp
+- /tppos
+- /speed
+- /back
+- /offlineinvsee
+
+2FA?
+Discord sync?
+
+Staff connection messages
+Punishment broadcasts
+
+Database API
+Config API?
