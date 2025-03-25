@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>proxy</module>
+        <module>velocity</module>
         <module>minestom</module>
         <module>minestom-example</module>
     </modules>
