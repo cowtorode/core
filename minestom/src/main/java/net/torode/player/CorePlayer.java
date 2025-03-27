@@ -19,7 +19,7 @@ import java.util.*;
 public class CorePlayer extends Player
 {
     private byte[] permissions;
-    private int stackDepth = 0; // todo remove this debug stuff
+    //private int stackDepth = 0; // todo remove this debug stuff
     private final SortedSet<Rank> ranks = new TreeSet<>();
     /**
      * The last inventories that the player had open (used for backing up in menus)
@@ -130,7 +130,7 @@ public class CorePlayer extends Player
     public boolean openInventory(@NotNull Inventory inventory)
     {
         lastInventories.clear();
-        sendMessage("opening " + (stackDepth = 0));
+        //sendMessage("opening " + (stackDepth = 0));
         return super.openInventory(inventory);
     }
 
@@ -142,7 +142,7 @@ public class CorePlayer extends Player
         // open the previous inventory
         closeInventory();
         super.openInventory(lastInventories.pop());
-        sendMessage("back " + (--stackDepth));
+        //sendMessage("back " + (--stackDepth));
     }
 
     /**
@@ -156,7 +156,7 @@ public class CorePlayer extends Player
         // open the new inventory
         closeInventory();
         super.openInventory(menu);
-        sendMessage("forward " + (++stackDepth));
+        //sendMessage("forward " + (++stackDepth));
     }
 
     /**
@@ -169,7 +169,7 @@ public class CorePlayer extends Player
 
         sendMessage(prompt);
         setChatCallback(event);
-        sendMessage("prompt " + (++stackDepth));
+        //sendMessage("prompt " + (++stackDepth));
     }
 
     public void promptConfirmation(Component prompt, CommandExecutor executor)
@@ -179,6 +179,6 @@ public class CorePlayer extends Player
 
         sendMessage(prompt);
         ConfirmCommand.register(this, executor);
-        sendMessage("confirm " + (++stackDepth));
+        //sendMessage("confirm " + (++stackDepth));
     }
 }
