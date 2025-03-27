@@ -1,4 +1,4 @@
-package net.torode.command;
+package net.torode.command.ranks;
 
 import net.minestom.server.command.CommandSender;
 import net.minestom.server.command.ConsoleSender;
@@ -10,21 +10,24 @@ import net.torode.player.CorePlayer;
 
 import static net.torode.player.permission.CorePermissions.COMMAND_RANKCACHE;
 
-public final class RankcacheCommand extends Command
+/**
+ * Command used to manage the rank cache
+ */
+public final class RanksCommand extends Command
 {
-    public RankcacheCommand()
+    public RanksCommand()
     {
         super("rankcache", "ranks");
 
-        setDefaultExecutor(RankcacheCommand::rankcache);
+        addSubcommand(new RanksDeleteCommand());
+        setDefaultExecutor(RanksCommand::ranks);
     }
 
-    private static void rankcache(CommandSender sender, CommandContext context)
+    private static void ranks(CommandSender sender, CommandContext context)
     {
         if (sender instanceof ConsoleSender)
         {
-            // usage
-
+            sender.sendMessage(Messages.COMMAND_RANKS_USAGE);
             return;
         }
 
