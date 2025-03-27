@@ -6,7 +6,7 @@ import net.minestom.server.event.player.PlayerChatEvent;
 import net.minestom.server.event.player.PlayerPluginMessageEvent;
 import net.torode.command.ConfirmCommand;
 import net.torode.command.GamemodeCommand;
-import net.torode.command.RankcacheCommand;
+import net.torode.command.ranks.RanksCommand;
 import net.torode.command.grant.GrantCommand;
 import net.torode.command.StopCommand;
 import net.torode.menu.MenuManager;
@@ -44,7 +44,7 @@ public final class Core
                        .register(new GrantCommand(),
                                  new StopCommand(),
                                  new GamemodeCommand(),
-                                 new RankcacheCommand(),
+                                 new RanksCommand(),
                                  new ConfirmCommand());
     }
 
