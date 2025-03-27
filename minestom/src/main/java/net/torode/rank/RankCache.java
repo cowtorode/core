@@ -4,7 +4,6 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Player;
-import net.minestom.server.inventory.InventoryType;
 import net.torode.menu.Menu;
 import net.torode.menu.MenuManager;
 import net.torode.player.CorePlayer;
@@ -14,7 +13,7 @@ import java.util.*;
 
 public final class RankCache
 {
-    private static final RanksMenu ranksMenu = MenuManager.register(new RanksMenu(InventoryType.CHEST_6_ROW, Component.text("Rank Editor")));
+    private static final RanksMenu ranksMenu = MenuManager.register(new RanksMenu());
 
     private static final Map<Integer, Rank> ranksById = new HashMap<>();
     private static final Map<String, Rank> ranksByName = new HashMap<>();
@@ -68,7 +67,8 @@ public final class RankCache
     public static void setWeight(Rank rank, int weight)
     {
         rank.setWeight(weight);
-        ranksMenu.draw(rank);
+        // instead of just calling ranksMenu#draw, we remove and readd to resort the list
+        ranksMenu.redrawWeight(rank);
 
         for (Player player : MinecraftServer.getConnectionManager().getOnlinePlayers())
         {
@@ -83,25 +83,25 @@ public final class RankCache
         ranksByName.remove(rank.name());
         ranksByName.put(name, rank);
         rank.setName(name);
-        ranksMenu.draw(rank);
+        ranksMenu.redrawName(rank);
     }
 
     public static void setDisplay(Rank rank, Component display)
     {
         rank.setDisplay(display);
-        ranksMenu.draw(rank);
+        ranksMenu.redrawDisplay(rank);
     }
 
     public static void setPrefix(Rank rank, Component prefix)
     {
         rank.setPrefix(prefix);
-        ranksMenu.draw(rank);
+        ranksMenu.redrawPrefix(rank);
     }
 
     public static void setUsername(Rank rank, Component username)
     {
         rank.setUsername(username);
-        ranksMenu.draw(rank);
+        ranksMenu.redrawUsername(rank);
 
         for (Player player : MinecraftServer.getConnectionManager().getOnlinePlayers())
         {
